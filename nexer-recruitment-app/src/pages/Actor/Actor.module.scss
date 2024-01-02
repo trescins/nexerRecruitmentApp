@@ -1,0 +1,21 @@
+.actorPageWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.moviesWrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: auto;
+  max-width: 95vw;
+  margin: 0 auto;
+}
+
+.tileWrapper {
+  margin-right: 20px;
+}
+
+.actorImage {
+  max-width: 220px;
+  margin: 0 auto;
+}

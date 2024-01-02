@@ -1,0 +1,7 @@
+.wrapper {
+  &:global(.MuiTextField-root) {
+    width: 100%;
+    margin-bottom: 40px;
+    min-width: 260px;
+  }
+}
