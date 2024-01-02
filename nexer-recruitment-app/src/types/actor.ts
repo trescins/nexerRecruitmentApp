@@ -1,7 +1,7 @@
 import { MovieType } from "./movie";
 import { TvShow } from "./tvShow";
 
-type CastType = {
+export type CastType = {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];

@@ -3,7 +3,7 @@ type Genre = {
   name: string;
 }
 
-type CastType = {
+export type MovieCastType = {
   id: number;
   adult: boolean;
   gender: number;
@@ -34,7 +34,7 @@ type CrewType = {
 
 export type MovieCreditsType = {
   id: number;
-  cast: CastType[],
+  cast: MovieCastType[],
   crew: CrewType[]
 }
 

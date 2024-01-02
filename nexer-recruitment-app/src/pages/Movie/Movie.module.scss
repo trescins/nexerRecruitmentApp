@@ -3,25 +3,6 @@
   flex-direction: column;
 }
 
-.actorsWrapper {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow: auto;
-  max-width: 95vw;
-  margin: 0;
-}
-
-.tileWrapper {
-  margin-right: 20px;
-}
-
-.reviewsWrapper {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(1, 1fr);
-  margin-bottom: 20px;
-}
-
 .heroWrapper {
   overflow: hidden;
   background: black;

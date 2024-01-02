@@ -2,9 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Typography } from "@mui/material";
-import { Tile } from "@/components/Tile/Tile";
 import { GoToHomepageBtn } from "@/components/GoToHomepageBtn/GoToHomepageBtn";
-import { MEDIA_TYPE } from "@/const/mediaType";
+import { ActorCreditsCastList } from "@/components/ActorCreditsCastList/ActorCreditsCastList";
 import { QUERY_KEYS } from "@/const/queryKeys";
 import { API_URL } from "@/const/urls";
 import { fetchActorDetails, fetchActorCredits } from "@/services/api";
@@ -68,24 +67,9 @@ function Actor() {
         >
           Credits:
         </Typography>
-        <div className={styles.moviesWrapper}>
-          {credits?.cast?.map((item) => {
-            return (
-              <div
-                className={styles.tileWrapper}
-                key={`${item.id}/${item.title}`}
-              >
-                <Tile
-                  imgSrc={item.poster_path}
-                  title={item.title}
-                  type={MEDIA_TYPE.MOVIE}
-                  id={item.id}
-                  releaseDate={item.release_date}
-                />
-              </div>
-            );
-          })}
-        </div>
+        {credits?.cast && (
+          <ActorCreditsCastList creditsCastList={credits.cast} />
+        )}
       </div>
     );
   }

@@ -2,10 +2,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { Rating, Typography } from "@mui/material";
-import { Tile } from "@/components/Tile/Tile";
 import { GoToHomepageBtn } from "@/components/GoToHomepageBtn/GoToHomepageBtn";
-import { Review } from "@/components/Review/Review";
-import { MEDIA_TYPE } from "@/const/mediaType";
 import { QUERY_KEYS } from "@/const/queryKeys";
 import { API_URL } from "@/const/urls";
 import {
@@ -13,6 +10,8 @@ import {
   fetchMovieDetails,
   fetchMovieReviews,
 } from "@/services/api";
+import { Reviews } from "@/components/Reviews/Reviews";
+import { MovieCreditsCastList } from "@/components/MovieCreditsCastList/MovieCreditsCastList";
 import styles from "./Movie.module.scss";
 
 function Movies() {
@@ -124,19 +123,9 @@ function Movies() {
         >
           Rating and reviews:
         </Typography>
-        <div className={styles.reviewsWrapper}>
-          {movieReviews?.results?.map((item) => {
-            return (
-              <Review
-                key={`${item.id}/${item.author}`}
-                content={item.content}
-                updated_at={item.updated_at}
-                author={item.author}
-                rating={item.author_details.rating}
-              />
-            );
-          })}
-        </div>
+        {movieReviews?.results && (
+          <Reviews reviewsList={movieReviews.results} />
+        )}
         <Typography
           color="text.secondary"
           gutterBottom
@@ -145,24 +134,10 @@ function Movies() {
         >
           Credits & Cast:
         </Typography>
-        <div className={styles.actorsWrapper}>
-          {movieCredits?.cast?.map((item) => {
-            return (
-              <div
-                className={styles.tileWrapper}
-                key={`${item.id}/${item.name}`}
-              >
-                <Tile
-                  imgSrc={item.profile_path}
-                  id={item.id}
-                  character={item.character}
-                  actorName={item.name}
-                  type={MEDIA_TYPE.PERSON}
-                />
-              </div>
-            );
-          })}
-        </div>
+
+        {movieCredits?.cast && (
+          <MovieCreditsCastList creditsCastList={movieCredits.cast} />
+        )}
       </div>
     );
   }
