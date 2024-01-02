@@ -1,0 +1,83 @@
+.moviePageWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.actorsWrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: auto;
+  max-width: 95vw;
+  margin: 0;
+}
+
+.tileWrapper {
+  margin-right: 20px;
+}
+
+.reviewsWrapper {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(1, 1fr);
+  margin-bottom: 20px;
+}
+
+.heroWrapper {
+  overflow: hidden;
+  background: black;
+}
+
+.backdropImg {
+  object-fit: contain;
+  width: 100%;
+  opacity: 0.4;
+}
+
+.posterImg {
+  object-fit: contain;
+  height: 220px;
+}
+
+.avgRatingWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+
+  @media screen and (min-width: 640px) {
+    justify-content: flex-start;
+  }
+}
+
+.title {
+  color: var(--color-yellow);
+}
+
+.posterContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (min-width: 640px) {
+    align-items: flex-start;
+  }
+}
+
+.detailsWrapper {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 640px) {
+    flex-direction: row;
+  }
+}
+
+.overview {
+  padding: 20px;
+}
+
+.boldText {
+  margin-left: 3px;
+  font-weight: bold;
+}
